@@ -6,7 +6,8 @@ class Welcome extends CI_Controller {
 	{
             $data = array();
             $data["page"] = 'liens';
-            $this->load->view("template", $data);
+			//echo site_url('api/menuDuJour');
+            $this->load->view("Template", $data);
 	}
         public function test(){
             $this->load->helper('fonctions');
@@ -22,19 +23,19 @@ class Welcome extends CI_Controller {
             $this->load->model('menuClass');
             $menuDuJour = $this->menuClass->getMenuDuJour();
             $idMenu = $menuDuJour->getId();
-            redirect(site_url('api/menuDuJour?idMenu='.$idMenu));
+            redirect(site_url('api/menudujour?idMenu='.$idMenu));
         }
         public function inscription(){
             $this->load->helper('fonctions');
             $data = array();
             $data["allMonths"] = allMonths();
             $data['page'] = 'inscription';
-            $this->load->view("template", $data);
+            $this->load->view("Template", $data);
         }
         public function connexion(){
             $data = array();
             $data['page'] = 'connexion';
-            $this->load->view('template', $data);
+            $this->load->view('Template', $data);
         }
         public function authentification(){
             $this->load->helper('fonctions');
@@ -60,7 +61,7 @@ class Welcome extends CI_Controller {
             if(isset($_SESSION['etudiant'])){
             $data['etudiant'] = $_SESSION['etudiant'];
             $data['page'] = 'accueilStudent';
-            $this->load->view('template', $data);
+            $this->load->view('Template', $data);
             }
             else{
                 echo 'Pas d\'etudiant';
@@ -75,7 +76,7 @@ class Welcome extends CI_Controller {
             $data["etudiant"] = $etudiant;
             $data["allMonths"] = allMonths();
             $data['page'] = 'modification';
-            $this->load->view('template', $data);
+            $this->load->view('Template', $data);
         }
         public function commande(){
             
@@ -91,6 +92,6 @@ class Welcome extends CI_Controller {
             $data['idCommande'] = $idCommande;
             $data['page'] = 'platAjoutCommande';
             $data['allPlats'] = $allPlats; 
-            $this->load->view('template', $data);
+            $this->load->view('Template', $data);
         }
 }
