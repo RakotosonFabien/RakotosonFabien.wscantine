@@ -64,7 +64,7 @@ CREATE TABLE menusXplats(
     FOREIGN KEY (idPlat) references plats(id)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE OR REPLACE VIEW menuJoinPlat_Step1 AS SELECT menus.id as idMenu, menus.dateMenu, menusXPlats.idPlat FROM menus LEFT JOIN menusxplats ON menus.id = menusxplats.idMenu;
+CREATE OR REPLACE VIEW menuJoinPlat_Step1 AS SELECT menus.id as idMenu, menus.dateMenu, menusXplats.idPlat FROM menus LEFT JOIN menusXplats ON menus.id = menusXplats.idMenu;
 CREATE OR REPLACE VIEW menuJoinPlat AS SELECT step1.idMenu, step1.datemenu, step1.idPlat, plats.nom, plats.prix FROM menuJoinPlat_Step1 as step1 LEFT JOIN plats ON step1.idPlat = plats.id;
 
 INSERT INTO plats(nom , prix) values('VaryTsotra', 1000), ('Frites', 1500), ('poulet', 1500), ('Salade', 2000), ('Jus', 1000), ('riz au poulet', 5000), ('Soupe', 6000);

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql-rakotosonfabien.alwaysdata.net',
-	'username' => '224895_dota2',
-	'password' => 'dotacomeback123',
-	'database' => 'rakotosonfabien_cantine2021',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'cantine2021',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
